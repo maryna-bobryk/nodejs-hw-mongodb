@@ -21,8 +21,7 @@ export const setupServer = () => {
   );
   app.get('/', (req, res) => {
     res.status(200).json({
-      message:
-        'Server is live on port 3000. Use /contacts to get all available contacts or /contacts/:contactId to get a specific contact.',
+      message: `Server is live on port ${PORT}. Use /contacts to get all available contacts or /contacts/:contactId to get a specific contact.`,
     });
   });
 
