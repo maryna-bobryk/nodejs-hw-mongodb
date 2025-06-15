@@ -12,8 +12,8 @@ export const initMongoDB = async () => {
       `mongodb+srv://${user}:${pwd}@${url}/${db}?retryWrites=true&w=majority&appName=Cluster0`,
     );
     console.log('Mongo connection successfully established!');
-  } catch (error) {
-    console.log('Error while setting up mongo connection', error);
-    throw error;
+  } catch (err) {
+    console.log('Error while setting up mongo connection', err);
+    throw err;
   }
 };
