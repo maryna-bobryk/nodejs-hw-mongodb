@@ -1,10 +1,26 @@
-export const errorHandler = (err, req, res, next) => {
-  const status = err.status || 500;
-  const message = status === 500 ? 'Something went wrong' : err.message;
+import { isHttpError } from 'http-errors';
+import { MongooseError } from 'mongoose';
 
-  res.status(status).json({
-    status,
-    message,
+export const errorHandler = (err, req, res, next) => {
+  if (isHttpError(err)) {
+    return res.status(err.status).json({
+      status: err.status,
+      message: err.message,
+      data: err.message,
+    });
+  }
+
+  if (err instanceof MongooseError) {
+    return res.status(500).json({
+      status: 500,
+      message: 'Something went wrong with MongoDB',
+      data: err.message,
+    });
+  }
+
+  return res.status(500).json({
+    status: 500,
+    message: 'Something went wrong',
     data: err.message,
   });
 };
