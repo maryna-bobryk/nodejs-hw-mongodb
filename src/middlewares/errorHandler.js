@@ -3,11 +3,6 @@ import { MongooseError } from 'mongoose';
 
 export const errorHandler = (err, req, res, next) => {
   if (isHttpError(err)) {
-    // return res.status(err.status).json({
-    //   status: err.status,
-    //   message: err.message,
-    //   data: err.errors || err.message,
-    // });
     const response = {
       status: err.status,
       message: err.message,
