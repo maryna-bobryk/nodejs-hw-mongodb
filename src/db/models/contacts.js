@@ -2,9 +2,15 @@ import { model, Schema } from 'mongoose';
 
 const contactsSchema = new Schema(
   {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+      required: true,
+    },
     name: {
       type: String,
       required: true,
+      trim: true,
     },
     phoneNumber: {
       type: String,
@@ -12,6 +18,7 @@ const contactsSchema = new Schema(
     },
     email: {
       type: String,
+      trim: true,
     },
     isFavourite: {
       type: Boolean,
