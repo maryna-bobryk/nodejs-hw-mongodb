@@ -9,7 +9,6 @@ export const registerUserSchema = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ['com', 'net', 'org', 'de'] },
     })
     .required()
     .messages({
@@ -17,13 +16,10 @@ export const registerUserSchema = Joi.object({
       'string.empty': 'Email cannot be empty',
       'any.required': 'Email is required',
     }),
-  password: Joi.string()
-    .min(8)
-    .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$'))
-    .required()
-    .messages({
-      'any.required': 'Password is required',
-    }),
+  password: Joi.string().min(8).required().messages({
+    'any.required': 'Password is required',
+    'string.min': 'Name must be at least {#limit} characters long',
+  }),
 });
 
 export const loginUserSchema = Joi.object({

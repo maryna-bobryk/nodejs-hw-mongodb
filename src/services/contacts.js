@@ -57,7 +57,7 @@ export const updateContact = async (
   payload,
   options = {},
 ) => {
-  const result = await ContactsCollection.findOneAndUpdate(
+  const updatedContact = await ContactsCollection.findOneAndUpdate(
     { _id: contactId, userId },
     payload,
     {
@@ -66,10 +66,10 @@ export const updateContact = async (
     },
   );
 
-  if (!result) return null;
+  if (!updatedContact) return null;
   return {
-    contact: result.value,
-    isNew: Boolean(result?.lastErrorObject?.upserted),
+    contact: updatedContact,
+    isNew: Boolean(updatedContact?.lastErrorObject?.upserted),
   };
 };
 

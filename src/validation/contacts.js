@@ -21,7 +21,6 @@ export const createContactsSchema = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ['com', 'net', 'org', 'de'] },
     })
     .messages({
       'string.email': 'Email must be a valid email address',
@@ -58,7 +57,6 @@ export const updateContactsSchema = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ['com', 'net', 'org', 'de'] },
     })
     .messages({
       'string.email': 'Email must be a valid email address',
