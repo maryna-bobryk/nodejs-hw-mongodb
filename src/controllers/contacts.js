@@ -58,6 +58,10 @@ export const createContactsController = async (req, res, next) => {
 
 export const patchContactsController = async (req, res, next) => {
   const { contactId } = req.params;
+  const photo = req.file;
+
+  let photoUrl;
+
   const userId = req.user._id;
   const result = await updateContact(contactId, userId, req.body);
 
