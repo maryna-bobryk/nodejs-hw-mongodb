@@ -18,6 +18,7 @@ export const CLOUDINARY = {
   CLOUD_NAME: 'CLOUD_NAME',
   API_KEY: 'API_KEY',
   API_SECRET: 'API_SECRET',
+  CLOUDINARY_ENABLED: 'CLOUDINARY_ENABLED',
 };
 
 export const TEMPLATE_DIR = path.join(process.cwd(), 'src', 'templates');
