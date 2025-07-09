@@ -9,8 +9,6 @@ import {
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
 import { parseFilterParams } from '../utils/parseFilterParams.js';
-import { saveFileToPermanentUploadDir } from '../utils/saveFileToPermanentUploadDir.js';
-import { saveFilesToCloudinary } from '../utils/saveFilesToCloudinary.js';
 import { saveFiles } from '../utils/saveFiles.js';
 
 export const getContactsController = async (req, res, next) => {
