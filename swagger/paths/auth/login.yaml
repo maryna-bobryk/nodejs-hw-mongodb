@@ -1,0 +1,30 @@
+tags:
+  - Auth
+summary: Login user
+operationId: loginUser
+description: Log in an existing user using email and password and receive access token
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            description: User's email address
+            example: johndoe@mail.com
+          password:
+            type: string
+            description: User's password
+            example: 'MyStr0ngPa55word!'
+responses:
+  '201':
+    $ref: ../../components/responses/user/200-login.yaml
+  '400':
+    $ref: ../../components/responses/user/400-validation-error.yaml

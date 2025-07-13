@@ -1,0 +1,35 @@
+tags:
+  - Auth
+summary: Register a new user
+operationId: registerUser
+description: Create a new user with payload
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - name
+          - email
+          - password
+        properties:
+          name:
+            description: "Users's name"
+            type: string
+            example: 'John Doe'
+          email:
+            description: "User's email address"
+            type: string
+            example: 'johndoe@mail.com'
+          password:
+            description: "User's password"
+            type: string
+            example: 'MyStr0ngPa55word!'
+responses:
+  '201':
+    $ref: ../../components/responses/user/201-register.yaml
+  '400':
+    $ref: ../../components/responses/user/400-validation-error.yaml

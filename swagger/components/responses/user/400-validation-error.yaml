@@ -1,0 +1,38 @@
+description: Bad Request
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - status
+        - message
+        - errors
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Validation failed
+        errors:
+          type: array
+          description: List of validation issues
+          items:
+            type: object
+            required:
+              - message
+              - path
+              - type
+            properties:
+              message:
+                type: string
+                description: Description of the validation rule that failed
+                example: Password must be at least 8 characters long
+              path:
+                type: string
+                description: Name of the field that caused the validation error
+                example: password
+              type:
+                type: string
+                description: Internal validation error code
+                example: string.min
