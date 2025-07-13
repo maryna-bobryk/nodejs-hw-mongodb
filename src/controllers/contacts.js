@@ -78,8 +78,6 @@ export const patchContactsController = async (req, res, next) => {
   let photoUrl;
   if (photo) {
     try {
-      // photoUrl = await saveFileToPermanentUploadDir(photo);
-      // photoUrl = await saveFilesToCloudinary(photo);
       photoUrl = await saveFiles(photo);
     } catch (error) {
       return next(createHttpError(500, 'Failed to save photo'));

@@ -1,0 +1,61 @@
+tags:
+  - Contacts
+summary: Update contact by id
+operationId: updateContactById
+description: 'Get contact details by ID. Authorization is required.'
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: contactId
+    required: true
+    schema:
+      type: string
+      example: '65ca67e7ae7f10c88b598384'
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          name:
+            description: Contact's name
+            type: string
+            example: John Doe
+
+          phoneNumber:
+            description: Contact's phone number
+            type: string
+            example: +4901234567890
+
+          email:
+            description: Contact's email address
+            type: string
+            example: john.doe@example.com
+
+          isFavourite:
+            description: Whether the contact is marked as favourite
+            type: boolean
+            example: false
+
+          contactType:
+            description: Contact's type
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: 'personal'
+
+          photo:
+            description: Contacts's photo
+            type: string
+            format: binary
+responses:
+  '200':
+    $ref: ../../components/responses/contact/200-by-id.yaml
+  '400':
+    $ref: ../../components/responses/contact/400.yaml
+  '401':
+    $ref: ../../components/responses/401.yaml
+  '404':
+    $ref: ../../components/responses/contact/404.yaml
+  '500':
+    $ref: ../../components/responses/contact/500.yaml
