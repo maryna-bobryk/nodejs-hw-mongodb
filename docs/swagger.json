@@ -177,11 +177,6 @@
                     ],
                     "example": "personal"
                   },
-                  "userId": {
-                    "description": "ID of the user who owns this contact",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
-                  },
                   "photo": {
                     "description": "Contacts's photo",
                     "type": "string",
@@ -499,11 +494,7 @@
         "summary": "Refresh user session",
         "operationId": "refreshUserSession",
         "description": "Refreshes an expired access token using a valid refresh token and session ID from cookies.",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
+        "security": [],
         "responses": {
           "200": {
             "$ref": "#/components/responses/200-refresh-token"
@@ -983,7 +974,7 @@
                 "data": {
                   "type": "object",
                   "required": [
-                    "items",
+                    "contacts",
                     "page",
                     "perPage",
                     "totalItems",
@@ -992,7 +983,7 @@
                     "hasNextPage"
                   ],
                   "properties": {
-                    "items": {
+                    "contacts": {
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/contacts"
